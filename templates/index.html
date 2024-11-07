@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendify - Planeje seus Estudos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bem-vindo ao Agendify!</h1>
+            <p>Vamos ajudar você a planejar uma rotina de estudos.</p>
+        </header>
+        
+        <form action="/" method="POST" class="form">
+            <label for="nome">Informe seu nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            
+            <label for="tempo">Tempo disponível para estudo (minutos):</label>
+            <input type="number" id="tempo" name="tempo" min="1" placeholder="Ex.: 60" required>
+
+            <label for="materia">Escolha uma matéria:</label>
+            <select id="materia" name="materia" required>
+                <option value="1">Linguagens</option>
+                <option value="2">Matemática</option>
+                <option value="3">Ciências Humanas</option>
+                <option value="4">Ciências da Natureza</option>
+            </select>
+
+            <button type="submit" class="button">Iniciar Estudo</button>
+        </form>
+
+        <div class="results">
+            {% if nome and conteudos %}
+                <h2>Olá, {{ nome }}! Sugestões de Conteúdos:</h2>
+                <ul>
+                    {% for conteudo in conteudos %}
+                        <li>{{ conteudo }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Tempo seu tempo disponivel estudo: {{ tempo }} minutos.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
