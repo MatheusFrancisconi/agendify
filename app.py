@@ -10,7 +10,6 @@ def index():
         tempo = int(request.form.get("tempo"))
         materia = int(request.form.get("materia"))
 
-        # Funções de sugestões de estudo com base na matéria
         conteudos = []
         if materia == 1:
             conteudos = ["Tipologia textual e gêneros textuais", "Figuras de linguagem", "Artes literárias", "Gramática", "Classes de palavras"]
