@@ -25,5 +25,9 @@ def index():
 
     return render_template("index.html")
 
+@app.route("/cronometro")
+def pomodoro():
+    return render_template("cronometro.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
